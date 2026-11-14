@@ -171,13 +171,19 @@ def update_feed(feed_path: Path, word: DailyWord, published: datetime) -> bool:
     feed_items = channel.findall("item")
     if len(item_matches) != len(feed_items):
         raise ValueError("The RSS file contains an item that could not be matched.")
+    future_items = []
+    todays_items = []
     for match, item in zip(item_matches, feed_items):
         item_date = _item_date(item)
-        if item_date is not None and item_date.date() == published.date():
-            today_matches.append((match, item))
+        if item_date is not None:
+            if item_date.date() > published.date():
+                future_items.append((match, item))
+            elif item_date.date() == published.date():
+                todays_items.append((match, item))
+    today_matches = todays_items
 
     already_current = (
-        len(today_matches) == 1
+        not future_items and len(today_matches) == 1
         and bool(item_matches)
         and today_matches[0][0].start() == item_matches[0].start()
         and today_matches[0][1].findtext("title") == word.title
@@ -187,7 +193,11 @@ def update_feed(feed_path: Path, word: DailyWord, published: datetime) -> bool:
     updated_feed = raw_feed
     if not already_current:
         new_item = _item_xml(word, published)
-        for match, _ in reversed(today_matches):
+        for match, _ in sorted(
+            todays_items + future_items,
+            key=lambda entry: entry[0].start(),
+            reverse=True,
+        ):
             updated_feed = updated_feed[:match.start()] + updated_feed[match.end():]
         first_item = item_pattern.search(updated_feed)
         insert_at = first_item.start() if first_item else updated_feed.index("</channel>")
