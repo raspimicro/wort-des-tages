@@ -1,7 +1,12 @@
+<<<<<<< HEAD
+=======
+// phpcs:ignoreFile
+>>>>>>> a293600c25ec14e258e111078abf3ceafe192aa8
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xml:base="https://www.duden.de/"  xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Wort des Tages</title>
+<<<<<<< HEAD
     <link>https://www.duden.de/wort-des-tages</link>
     <description>Das aktuelle Wort des Tages von Duden.</description>
     <language>de</language>
@@ -16,6 +21,13 @@
   <guid isPermaLink="false">2026-11-15-juxig</guid>
   </item>
 <item>
+=======
+    <link>https://www.duden.de/</link>
+    <description></description>
+    <language>de</language>
+    
+    <item>
+>>>>>>> a293600c25ec14e258e111078abf3ceafe192aa8
   <title>konkretisieren</title>
   <link>https://www.duden.de/rechtschreibung/konkretisieren</link>
   <description>
@@ -390,7 +402,35 @@ Adjektiv
         ea38edb3-2791-4b96-926a-24278eeea2be
       </guid>
     </item>
+<<<<<<< HEAD
 
+=======
+<item>
+  <title>memorieren</title>
+  <link>https://www.duden.de/rechtschreibung/memorieren</link>
+  <description>
+  &lt;img src=&quot;https://duden.de/wdt/152334&quot; title=&quot;memorieren&quot; /&gt;
+
+schwaches Verb
+  </description>
+  <content:encoded>
+          <![CDATA[
+        <img src="https://duden.de/wdt/152334" title="memorieren" />
+
+schwaches Verb
+      ]]>
+      </content:encoded>
+  <pubDate>
+        Sun, 15 Nov 2026 12:00:00 +0000
+      </pubDate>
+    <dc:creator>
+        Duden Redaktion
+      </dc:creator>
+    <guid isPermaLink="false">
+        8938beed-6981-4c21-add7-dd8e65947803
+      </guid>
+    </item>
+>>>>>>> a293600c25ec14e258e111078abf3ceafe192aa8
 <item>
   <title>juxig</title>
   <link>https://www.duden.de/rechtschreibung/juxig</link>
